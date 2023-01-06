@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+labels:
+  app: react-app
+name: app-deployment
+spec:
+replicas: 2
+selector:
+  matchLabels:
+    app: react-app
+template:
+  metadata:
+    labels:
+      app: react-app
+  spec:
+    containers:
+    - image: harimuna/react-app
+      name: app-deployment
+      ports:
+      - containerPort: 3000
